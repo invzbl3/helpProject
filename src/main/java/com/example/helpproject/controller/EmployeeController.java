@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @author invzbl3 on 1/21/2023
  * @project helpProject
  */
-@RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
 
@@ -25,8 +24,8 @@ public class EmployeeController {
     }
 
     // build REST API
-    @PostMapping()
     public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
-        return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
+        return new ResponseEntity<>
+                (employeeService.saveEmployee(employee), HttpStatus.CREATED);
     }
 }
