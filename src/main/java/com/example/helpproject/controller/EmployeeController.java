@@ -6,12 +6,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author invzbl3 on 1/21/2023
  * @project helpProject
  */
-@RequestMapping("/api/employees")
+@RestController
 public class EmployeeController {
 
     private EmployeeService employeeService;
@@ -22,6 +23,7 @@ public class EmployeeController {
     }
 
     // build REST API
+    @RequestMapping("/api/employees")
     public ResponseEntity<Employee> saveEmployee(@RequestBody Employee employee){
         return new ResponseEntity<>
                 (employeeService.saveEmployee(employee), HttpStatus.CREATED);
